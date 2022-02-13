@@ -1,0 +1,131 @@
+.fixed-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: #49b3e9;
+}
+
+.fixed-nav-bar li,
+.fixed-nav-bar a {
+  height: 50px;
+  line-height: 50px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+.menu a,
+.menu a:visited {
+  color: #ffffff;
+}
+.menu a:hover,
+.menu a:target {
+  color: #ebebeb;
+}
+.menu-items {
+  flex: 5;
+  margin: 0;
+  padding: 0;
+  padding-right: 5vw;
+  text-align: end;
+}
+.search_button {
+  flex: 3;
+  width: 40vw;
+  height: 20px;
+}
+.sitename {
+  flex: 3;
+  padding-left: 2vw;
+  text-decoration: none;
+}
+
+.special {
+  display: none !important;
+}
+.menu-items li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.menu-items a {
+  text-decoration: none;
+}
+.show,
+.hide {
+  text-decoration: none;
+  display: none;
+  padding-left: 15px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center left;
+  color: #dde1e2;
+}
+.show {
+  background-image: url(../assets/down-arrow-icon.png);
+}
+.hide {
+  background-image: url(../assets/up-arrow-icon.png);
+}
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    position: relative;
+    width: 100%;
+  }
+  .sitename {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    margin-left: 0px;
+  }
+  .menu-items {
+    display: none;
+    width: 100%;
+    margin-top: 50px;
+    background-color: #49b3e9;
+    padding: 0;
+  }
+  .search_button {
+    display: none;
+  }
+
+  .menu-items li {
+    display: block !important;
+    text-align: center;
+  }
+  .show,
+  .hide {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+  .show {
+    display: inline-block;
+  }
+  .hide {
+    display: none;
+  }
+  #menu:target .show {
+    display: none;
+  }
+  #menu:target .hide,
+  #menu:target .menu-items {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 220px) {
+  .sitename,
+  .show,
+  .hide {
+    font-size: 14px;
+  }
+}
