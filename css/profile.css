@@ -58,10 +58,10 @@
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);}
 
 .icon h4 {
-  flex: 2;
-  color: #414141;
-  font-size: 1vw;
-  font-weight: 500;
+  flex: 5;
+  color: #797979;
+  font-size: 0.8em;
+  font-weight: 100;
   margin-top: 0.5em;
   margin-bottom: 0.2em;
   text-align: start;
@@ -70,9 +70,9 @@
 }
 
 .icon p {
-  flex: 1;
+  flex: 2;
   color: #49b3e9;
-  font-size: 0.7vw;
+  font-size: 0.8em;
   font-weight: 100;
   margin-top: 0.5em;
   margin-bottom: 0.2em;
