@@ -32,12 +32,12 @@
   flex: 5;
   margin: 0;
   padding: 0;
-  padding-right: 5vw;
+  padding-right: 1vw;
   text-align: end;
 }
 .search_button {
   flex: 3;
-  width: 40vw;
+  width: 30vw;
   height: 26px;
   background-color: white;
   border:0;
