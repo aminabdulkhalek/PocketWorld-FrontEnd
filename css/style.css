@@ -1,5 +1,6 @@
 body{
     background-color: #EEF3F8;
+    font-family: 'Roboto', sans-serif;
 }
 .wrapper {
   display: grid;
@@ -28,7 +29,7 @@ body{
   position: absolute;
   top: 0;
   right: 22vw;
-  left: 22vw;
+  left: 21vw;
   height: 100%;
   margin: 70px 1vw 0 1vw;
 }

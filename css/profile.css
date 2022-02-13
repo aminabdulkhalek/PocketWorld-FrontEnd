@@ -42,16 +42,16 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding-left: 20px;
+  padding-left: 1vw;
   padding-bottom: 6px;
 
 }
 .icon a {
   color: #fff;
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
-  line-height: 45px;
+  width: 2vw;
+  height: 2vw;
+  font-size: 1vw;
+  line-height: 2vw;
   text-align: center;
   border-radius: 30px;
   background-color: #045de9;
@@ -60,7 +60,7 @@
 .icon h4 {
   flex: 2;
   color: #414141;
-  font-size: 1em;
+  font-size: 1vw;
   font-weight: 500;
   margin-top: 0.5em;
   margin-bottom: 0.2em;
@@ -72,7 +72,7 @@
 .icon p {
   flex: 1;
   color: #49b3e9;
-  font-size: 12px;
+  font-size: 0.7vw;
   font-weight: 100;
   margin-top: 0.5em;
   margin-bottom: 0.2em;
