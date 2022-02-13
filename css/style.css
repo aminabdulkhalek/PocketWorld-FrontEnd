@@ -1,0 +1,31 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.left_column {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100%;
+  margin: 70px 1vw 0 1vw;
+}
+
+.right_column {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 100%;
+  margin: 70px 1vw 0 1vw;
+}
+
+.middle_column {
+  position: absolute;
+  top: 0;
+  right: 22vw;
+  left: 22vw;
+  height: 100%;
+  margin: 70px 1vw 0 1vw;
+}
