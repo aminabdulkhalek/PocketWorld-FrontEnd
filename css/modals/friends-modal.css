@@ -38,9 +38,10 @@
   text-decoration: none;
 }
 #frnd-modal > div > div > h3 {
-  font-size: 20px !important;
+  font-size: 18px !important;
   text-align: start;
   padding-left: 20px;
+  font-weight: 400;
 }
 
 #frnd-modal > div > div > img {
@@ -131,3 +132,22 @@
 #frnd-modal > div > div:nth-child(1) > a > i {
   font-size: x-large;
 }
+
+
+@media only screen and (max-width: 800px) {
+    #frnd-modal > div > div > h3{
+      font-size: 15px !important;
+  
+    }
+    #frnd-modal > div > div > img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .unfriend , .block,.blocked{
+          font-size: 10px;
+      }
+      #frnd-modal > div > div:nth-child(1) > a > i {
+        font-size: large;
+      }
+  }
