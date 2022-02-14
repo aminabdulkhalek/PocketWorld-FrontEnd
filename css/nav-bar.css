@@ -36,14 +36,21 @@
   text-align: end;
 }
 .search_button {
+  text-decoration: none;
   flex: 3;
-  width: 30vw;
-  height: 26px;
-  background-color: white;
-  border:0;
   text-align: start;
-  color: #4966e9 ;
   cursor: pointer;
+  letter-spacing: 2px;
+  padding-left: 12px;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.fas{
+  line-height: 0 !important;
+  margin-top: 16px;
+  width: 20px;
+  height: 25px;
 }
 .sitename {
   flex: 3;
