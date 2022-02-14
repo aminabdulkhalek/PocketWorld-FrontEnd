@@ -1,51 +1,65 @@
-.status-box {
+.post-container {
+  margin-top: 15px;
+  background-color: white;
+  transition: background 0.6s ease;
+  border-radius: 10px;
+  padding: 20px 35px 20px 35px;
+}
+
+.post-box {
   width: 100%;
   text-decoration: none;
+
+  background-color: transparent;
   border: 0;
-  border-bottom: 1px solid rgb(214, 214, 214);
   resize: none;
   margin-bottom: 20px;
   font-size: large;
 }
 
-.status-title {
-  margin-top: 0;
- color: #1fa2ff;
+.post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 15px;
 }
 
-.status-container {
-  background-color: white;
-  transition: background 0.6s ease;
-  border-radius: 10px;
-  padding: 20px 20px 45px 20px;
+.post h3 {
+  flex: 2;
+  font-size: large;
+  font-weight: 600;
+  text-align: start;
+  padding-left: 25px;
 }
 
-.post-button {
-  position: absolute;
-  right: 15px;
-  text-decoration: none;
-  border: 0;
+.post p {
+  color: #497ce9;
+  text-align: end;
 
-  background-image: linear-gradient(
-    to right,
-    #1fa2ff 0%,
-    #12d8fa 51%,
-    #1fa2ff 100%
-  );
-
-  padding: 8px 12px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
 }
 
-.post-button:hover {
-  background-position: right center;
-  cursor: pointer;
-  color: #fff;
+hr{
+    margin-bottom: 15px;
+}
+.post-img {
+  width: 3.5vw;
+  height: 3.5vw;
+  display: flex;
+  border-radius: 100%;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.541);
+
+}
+
+.like {
+    color: #49b3e9;
+    font-size: x-large;
+}
+.dislike {
+    color: rgb(255, 92, 92);
+    font-size: x-large;
+}
+.post-container span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: larger;
 }
