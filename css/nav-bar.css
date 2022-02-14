@@ -60,6 +60,7 @@
   display: inline-block;
   margin-right: 10px;
   margin-left: 10px;
+  font-weight: 600;
 }
 
 .menu-items a {
