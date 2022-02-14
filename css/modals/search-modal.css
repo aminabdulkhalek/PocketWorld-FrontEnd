@@ -38,14 +38,15 @@
   text-decoration: none;
 }
 #srch-modal > div > div > h3{
-  font-size: 20px !important;
+  font-size: 18px !important;
   text-align: start;
   padding-left: 20px;
+  font-weight: 400;
 }
 
 #srch-modal > div > div > img{
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
 }
 
 .add{
@@ -107,6 +108,11 @@
   cursor: pointer;
   color: #fff;
 }
-#srch-modal > div > div:nth-child(1) > a > i{
-  font-size: x-large;
+
+
+@media only screen and (max-width: 800px) {
+  #srch-modal > div > div > h3{
+    font-size: 15px !important;
+
+  }
 }
