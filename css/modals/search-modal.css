@@ -115,4 +115,10 @@
     font-size: 15px !important;
 
   }
+  #frnd-modal > div > div:nth-child(1) > a > i {
+    font-size: large;
+  }
+  .add , .added{
+    font-size: 10px;
+}
 }
