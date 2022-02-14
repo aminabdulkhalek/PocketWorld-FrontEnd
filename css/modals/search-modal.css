@@ -76,6 +76,7 @@
 
 }
 .added::after{
+  margin-top: -15px;
   cursor: not-allowed;
   pointer-events: none;
   visibility: visible;
