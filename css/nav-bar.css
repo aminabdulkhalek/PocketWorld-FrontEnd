@@ -82,6 +82,7 @@
   background-repeat: no-repeat;
   background-position: center left;
   color: #dde1e2;
+  font-weight: 600;
 }
 .show {
   background-image: url(../assets/down-arrow-icon.png);
