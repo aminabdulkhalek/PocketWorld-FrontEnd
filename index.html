@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/people-u-may-know.css" />
     <link rel="stylesheet" href="css/status-box.css" />
     <link rel="stylesheet" href="css/post-box.css" />
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/search-modal.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
@@ -25,7 +25,9 @@
         <a class="show" href="#menu">Menu</a>
         <a class="hide" href="#hidemenu">Menu</a>
         <a href="">
-          <a href="#srch-modal" class="search_button"><i class="fas fa-search"></i>Search for Friends</a>
+          <a href="#srch-modal" class="search_button"
+            ><i class="fas fa-search"></i>Search for Friends</a
+          >
         </a>
 
         <ul class="menu-items">
@@ -78,8 +80,6 @@
       </div>
 
       <div class="middle_column">
-
-
         <div class="status-container">
           <h4 class="status-title">Status Update</h4>
           <textarea
@@ -105,8 +105,10 @@
             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"
           ></textarea>
           <hr />
-          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a><span>25</span>
-          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a><span>15</span>
+          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+          ><span>25</span>
+          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+          ><span>15</span>
         </div>
 
         <div class="post-container">
@@ -124,8 +126,10 @@
             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"
           ></textarea>
           <hr />
-          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a><span>25</span>
-          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a><span>15</span>
+          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+          ><span>25</span>
+          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+          ><span>15</span>
         </div>
         <div class="post-container">
           <div class="post">
@@ -142,8 +146,10 @@
             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"
           ></textarea>
           <hr />
-          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a><span>25</span>
-          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a><span>15</span>
+          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+          ><span>25</span>
+          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+          ><span>15</span>
         </div>
         <div class="post-container">
           <div class="post">
@@ -160,15 +166,16 @@
             placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"
           ></textarea>
           <hr />
-          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a><span>25</span>
-          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a><span>15</span>
+          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+          ><span>25</span>
+          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+          ><span>15</span>
         </div>
-
       </div>
 
       <div class="right_column">
         <div class="container">
-          <div class="heading">People you may know </div>
+          <div class="heading">People you may know</div>
           <div class="ppl">
             <img
               src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
@@ -208,13 +215,47 @@
     <!-- my modals -->
     <div id="srch-modal" class="search-modal">
       <div class="search-modal__content">
+        <div>
           <h1>Search for potintial Friends</h1>
-          <hr>
-  
-        
-          <a href="#" class="search-modal__close"><i class="fas fa-times-circle"></i></a>
-      </div>
-  </div>
+          <hr />
+          <a href="#" class="search-modal__close"
+            ><i class="fas fa-times-circle"></i
+          ></a>
+        </div>
 
+        
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+
+          <h3>Beverly Little</h3>
+          <button class="add">Add <i class="fas fa-plus-circle"></i></button>
+        </div>
+
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+          <h3>Beverly Little</h3>
+          <button class="added">add <i class="fas fa-check-circle"></i></button>
+        </div>
+
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+          <h3>Beverly Little</h3>
+          <button class="add">Add <i class="fas fa-plus-circle"></i></button>
+        </div>
+
+
+
+
+      </div>
+    </div>
   </body>
 </html>
