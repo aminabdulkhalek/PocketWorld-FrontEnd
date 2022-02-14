@@ -42,8 +42,8 @@ hr{
     margin-bottom: 15px;
 }
 .post-img {
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 70px;
+  height: 70px;
   display: flex;
   border-radius: 100%;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.541);
