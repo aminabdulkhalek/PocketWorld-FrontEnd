@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/post-box.css" />
     <link rel="stylesheet" href="css/modals/search-modal.css" />
     <link rel="stylesheet" href="css/modals/friends-modal.css" />
+    <link rel="stylesheet" href="css/modals/blocked-modal.css">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
@@ -20,7 +21,6 @@
     <title>Pocket World</title>
   </head>
   <body>
-
     <!-- my navbar -->
     <nav class="fixed-nav-bar">
       <div id="menu" class="menu">
@@ -55,7 +55,6 @@
 
     <!-- 3 columns wrapper -->
     <div class="wrapper">
-
       <!-- left sidebar: profile section -->
       <div class="left_column">
         <div class="container">
@@ -77,7 +76,7 @@
             </div>
 
             <div class="icon">
-              <a href="#"><i class="fas fa-ban"></i></a>
+              <a href="#blocked-modal"><i class="fas fa-ban"></i></a>
               <h4>Blocked</h4>
               <p>320</p>
             </div>
@@ -86,10 +85,8 @@
       </div>
       <!-- end of left sidebar: profile section -->
 
-
       <!-- middle section : post feed -->
       <div class="middle_column">
-
         <!-- update status/ make a post -->
         <div class="status-container">
           <h4 class="status-title">Status Update</h4>
@@ -191,7 +188,6 @@
       </div>
       <!--end of middle section : post feed -->
 
-
       <!-- right side bar :  People you may know-->
       <div class="right_column">
         <div class="container">
@@ -279,7 +275,6 @@
     </div>
     <!-- end of search modal -->
 
-
     <!-- my friends list modal -->
     <div id="frnd-modal" class="friends-modal">
       <div class="friends-modal__content">
@@ -329,10 +324,55 @@
           </button>
           <button class="block">block <i class="fas fa-ban"></i></button>
         </div>
-
       </div>
     </div>
-        <!-- end of my friends list modal -->
+    <!-- end of my friends list modal -->
 
+    <!-- my block list modal -->
+    <div id="blocked-modal" class="friends-modal">
+      <div class="friends-modal__content">
+        <div>
+          <h1>My blocked List</h1>
+          <hr />
+          <a href="#" class="friends-modal__close"
+            ><i class="fas fa-times-circle"></i
+          ></a>
+        </div>
+
+        <!-- a user -->
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+          <h3>Beverly Little</h3>
+          
+          <button class="block">block <i class="fas fa-ban"></i></button>
+        </div>
+
+        <!-- a user -->
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+          <h3>Beverly Little</h3>
+          
+          <button class="blocked">block <i class="fas fa-ban"></i></button>
+        </div>
+
+        <!-- a user -->
+        <div class="ppl">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="ppl-img"
+          />
+          <h3>Beverly Little</h3>
+          
+          <button class="block">block <i class="fas fa-ban"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- end of my block list modal -->
   </body>
 </html>

@@ -1,0 +1,14 @@
+#blocked-modal > div > div:nth-child(1) > a > i {
+    font-size: x-large;
+  }
+
+  #blocked-modal > div > div > h3 {
+    font-size: 20px !important;
+    text-align: center;
+    padding-left: 20px;
+  }
+  
+  #blocked-modal > div > div > img {
+    width: 70px;
+    height: 70px;
+  }
