@@ -1,6 +1,4 @@
 
-
-/// sign in 
 const signinBtn = document.getElementById("signin-btn");
 const emailField = document.getElementById("login-email");
 const passwordField = document.getElementById("login-password");
@@ -9,15 +7,15 @@ signinBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const email = emailField.value;
   const password = passwordField.value;
-  if (email.length ==0){
-      emailField.style.border = "1px solid #FF0000";
+  if (email.length == 0) {
+    emailField.style.border = "1px solid #FF0000";
   }
 
-  if (password.length ==0){
-      passwordField.style.border = "1px solid #FF0000";
- }
+  if (password.length == 0) {
+    passwordField.style.border = "1px solid #FF0000";
+  }
 
-  fetchLogin(email, password)
+  fetchLogin(email, password);
 });
 
 async function fetchLogin(email, password) {
@@ -36,21 +34,21 @@ async function fetchLogin(email, password) {
     console.log(response);
     const json = await response.json();
     console.log(json);
-    if (json.status != "User not found!" && email.length > 0 && password.length >0) {
+    if (
+      json.status != "User not found!" &&
+      email.length > 0 &&
+      password.length > 0
+    ) {
       // localStorage.clear();
       localStorage.setItem("user_id", json.user_id);
       localStorage.setItem("first_name", json.first_name);
       localStorage.setItem("last_name", json.last_name);
-      location.href = " ./views/home.html";
+      location.href = "./views/home.html";
     }
   } catch (error) {
     console.log("error", error);
   }
 }
-
-
-
-
 
 // sign up section
 const registerBtn = document.getElementById("signup-btn");
@@ -59,25 +57,24 @@ const registerPassword = document.getElementById("register-password");
 const registerFirstName = document.getElementById("register-first-name");
 const registerLastName = document.getElementById("register-last-name");
 
-
-  registerBtn.addEventListener("click", function (e) {
+registerBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const email = registerEmail.value;
   const firstName = registerFirstName.value;
   const lastName = registerLastName.value;
   const password = registerPassword.value;
-  if (email.length ==0){
+  if (email.length == 0) {
     registerEmail.style.border = "1px solid #FF0000";
-}
-if (password.length ==0){
-  registerPassword.style.border = "1px solid #FF0000";
-}
-if (firstName.length ==0){
-  registerFirstName.style.border = "1px solid #FF0000";
-}
-if (lastName.length==0){
-  registerLastName.style.border ="1px solid #FF0000";
-}
+  }
+  if (password.length == 0) {
+    registerPassword.style.border = "1px solid #FF0000";
+  }
+  if (firstName.length == 0) {
+    registerFirstName.style.border = "1px solid #FF0000";
+  }
+  if (lastName.length == 0) {
+    registerLastName.style.border = "1px solid #FF0000";
+  }
   fetchRegister(firstName, lastName, email, password);
 });
 
@@ -88,7 +85,7 @@ async function fetchRegister(firstName, lastName, email, password) {
       email: email,
       password: password,
       first_name: firstName,
-      last_name: lastName
+      last_name: lastName,
     }),
   };
   try {
@@ -104,5 +101,3 @@ async function fetchRegister(firstName, lastName, email, password) {
     console.log("error", error);
   }
 }
-
-
