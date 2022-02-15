@@ -52,10 +52,12 @@ hr{
 .like {
     color: #49b3e9;
     font-size: x-large;
+    cursor: pointer;
 }
 .dislike {
     color: rgb(255, 92, 92);
     font-size: x-large;
+    cursor: pointer;
 }
 .post-container span {
     padding-left: 10px;

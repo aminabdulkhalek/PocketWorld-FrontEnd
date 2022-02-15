@@ -19,7 +19,6 @@ userName.textContent = firstName_stored + " " + lastName_stored;
 const userEmail = document.getElementById("user-email");
 userEmail.textContent = email_stored.toUpperCase();
 
-
 // post button and text
 const postBtn = document.getElementById("post-button");
 const postText = document.getElementById("post-text");
@@ -54,10 +53,6 @@ async function sendPost(id, text) {
   }
 }
 
-
-
-
-
 async function getPosts(id) {
   const settings = {
     method: "POST",
@@ -72,11 +67,9 @@ async function getPosts(id) {
     );
     // console.log(response);
     const json = await response.json();
-    console.log(json);
     const postContainer = document.getElementById("post1");
-for (let i=0; i < json.length; i++){
-  postContainer.innerHTML +=
-`<div class="post-container" id="post-container">
+    for (let i = 0; i < json.length; i++) {
+      postContainer.innerHTML += `<div class="post-container" id="post-container">
         <div class="post">
           <img
             src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
@@ -89,14 +82,13 @@ for (let i=0; i < json.length; i++){
           ${json[i]["Post_content"]}
         </p>
         <hr />
-        <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
-        ><span>${json[i]["nb_of_likes"]}</span>
-        <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
-        ><span>${json[i]["nb_of_dislikes"]}</span>
-      </div>`
+        <a class="like" id="like"><i class="fas fa-thumbs-up" onclick="addLike(${json[i]["ID"]})"></i></a
+        ><span id="${json[i]["ID"]}">${json[i]["nb_of_likes"]}</span>
+        <a class="dislike"><i class="fas fa-thumbs-down" onclick="addDislike(${json[i]["ID"]})"></i></a
+        ><span id="${json[i]["ID"]}d">${json[i]["nb_of_dislikes"]}</span>
+      </div>`;
       getFullName(json[i]["User_ID"], i);
-}
-
+    }
   } catch (error) {
     console.log("error", error);
   }
@@ -115,16 +107,53 @@ async function getFullName(id, i) {
       settings
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     const fullname = document.getElementById(`fullname${i}`);
-    fullname.textContent = json.first_name +" "+ json.last_name;
+    fullname.textContent = json.first_name + " " + json.last_name;
   } catch (error) {
     console.log("error", error);
   }
 }
-
-window.onload = function(){
+// let liked = 0;
+async function addLike(post_id) {
   
-  getPosts(id);
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/add_like.php?id=${id}&post_id=${post_id}`
+    );
+    // console.log(response);
+    const json = await response.json();
+    document.getElementById(post_id).textContent = json.nb_of_likes;
+    // const likeBtn = document.getElementsByClassName("like");
+    // if (liked % 2 == 0){
+    //   likeBtn.style.color = "#49b3e9"
+    //   liked += 1;
+    // }else{
+    //   likeBtn.style.color = "#1c88be"
+    //   liked += 1;
+    // }
+    
+    console.log(json);
+  } catch (e) {
+    console.log("error", e)
+  }
 }
 
+async function addDislike(post_id) {
+  
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/add_dislike.php?id=${id}&post_id=${post_id}`
+    );
+    // console.log(response);
+    const json = await response.json();
+    document.getElementById(`${post_id}d`).textContent = json.nb_of_dislikes;  
+    console.log(json);
+  } catch (e) {
+    console.log("error", e)
+  }
+}
+
+window.onload = function () {
+  getPosts(id);
+};
