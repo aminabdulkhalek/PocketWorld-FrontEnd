@@ -56,6 +56,7 @@ async function sendPost(id, text) {
 
 
 window.onload = function(){
+   //fetching users posts
   async function getPosts(id) {
     const settings = {
       method: "POST",
@@ -71,14 +72,42 @@ window.onload = function(){
       // console.log(response);
       const json = await response.json();
       console.log(json);
+      const postContainer = document.getElementById("post1");
+  for (let i=0; i < json.length; i++){
+    postContainer.innerHTML +=
+  `<div class="post-container" id="post-container">
+          <div class="post">
+            <img
+              src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+              class="post-img"
+            />
+            <h3>Beverly Little</h3>
+            <p>${json[i]["post_time"]}</p>
+          </div>
+          <p class="post-box">
+            ${json[i]["Post_content"]}
+          </p>
+          <hr />
+          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+          ><span>${json[i]["nb_of_likes"]}</span>
+          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+          ><span>${json[i]["nb_of_dislikes"]}</span>
+        </div>`
+  }
+  
+  
+  console.log(json[0]["Post_content"]);
     } catch (error) {
       console.log("error", error);
     }
   }
-  //fetching users posts
+ 
   getPosts(id);
-  console.log(id);
+
   // displaying users posts
+
+  
+  
  
 }
 
