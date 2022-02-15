@@ -55,59 +55,76 @@ async function sendPost(id, text) {
 }
 
 
+
+
+
+async function getPosts(id) {
+  const settings = {
+    method: "POST",
+    body: new URLSearchParams({
+      id: id,
+    }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost/Facebook/php/get_posts.php",
+      settings
+    );
+    // console.log(response);
+    const json = await response.json();
+    console.log(json);
+    const postContainer = document.getElementById("post1");
+for (let i=0; i < json.length; i++){
+  postContainer.innerHTML +=
+`<div class="post-container" id="post-container">
+        <div class="post">
+          <img
+            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            class="post-img"
+          />
+          <h3 id="fullname${i}"></h3>
+          <p>${json[i]["post_time"]}</p>
+        </div>
+        <p class="post-box">
+          ${json[i]["Post_content"]}
+        </p>
+        <hr />
+        <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
+        ><span>${json[i]["nb_of_likes"]}</span>
+        <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
+        ><span>${json[i]["nb_of_dislikes"]}</span>
+      </div>`
+      getFullName(json[i]["User_ID"], i);
+}
+
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+async function getFullName(id, i) {
+  const settings = {
+    method: "POST",
+    body: new URLSearchParams({
+      id: id,
+    }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost/Facebook/php/get_fullname.php",
+      settings
+    );
+    const json = await response.json();
+    console.log(json);
+    const fullname = document.getElementById(`fullname${i}`);
+    fullname.textContent = json.first_name +" "+ json.last_name;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
 window.onload = function(){
-   //fetching users posts
-  async function getPosts(id) {
-    const settings = {
-      method: "POST",
-      body: new URLSearchParams({
-        id: id,
-      }),
-    };
-    try {
-      const response = await fetch(
-        "http://localhost/Facebook/php/get_posts.php",
-        settings
-      );
-      // console.log(response);
-      const json = await response.json();
-      console.log(json);
-      const postContainer = document.getElementById("post1");
-  for (let i=0; i < json.length; i++){
-    postContainer.innerHTML +=
-  `<div class="post-container" id="post-container">
-          <div class="post">
-            <img
-              src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
-              class="post-img"
-            />
-            <h3>Beverly Little</h3>
-            <p>${json[i]["post_time"]}</p>
-          </div>
-          <p class="post-box">
-            ${json[i]["Post_content"]}
-          </p>
-          <hr />
-          <a class="like" href=""><i class="fas fa-thumbs-up"></i></a
-          ><span>${json[i]["nb_of_likes"]}</span>
-          <a class="dislike" href=""><i class="fas fa-thumbs-down"></i></a
-          ><span>${json[i]["nb_of_dislikes"]}</span>
-        </div>`
-  }
   
-  
-  console.log(json[0]["Post_content"]);
-    } catch (error) {
-      console.log("error", error);
-    }
-  }
- 
   getPosts(id);
-
-  // displaying users posts
-
-  
-  
- 
 }
 
