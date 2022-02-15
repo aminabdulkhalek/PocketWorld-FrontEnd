@@ -43,6 +43,7 @@ async function fetchLogin(email, password) {
       localStorage.setItem("user_id", json.user_id);
       localStorage.setItem("first_name", json.first_name);
       localStorage.setItem("last_name", json.last_name);
+      localStorage.setItem("email", json.email);
       location.href = "./views/home.html";
     }
   } catch (error) {
