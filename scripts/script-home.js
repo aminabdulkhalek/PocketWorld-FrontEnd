@@ -309,6 +309,26 @@ async function updatePost(post_id, index){
   }
 }
 
+async function deletePost(post_id){
+  const settings = {
+    method: "POST",
+    body: new URLSearchParams({
+      post_id: post_id,
+    }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost/Facebook/php/delete_post.php",
+      settings
+    );
+    const json = await response.json();
+    getPosts(id);
+    getMyPosts();
+  }catch(e){
+    console.log("Update Post Error", e)
+  }
+}
+
 
 
 window.onload = function () {
