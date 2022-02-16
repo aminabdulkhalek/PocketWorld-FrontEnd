@@ -181,13 +181,13 @@ async function getfriends(){
     friendsContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
       friendsContainer.innerHTML += 
-      `<div class="ppl">
+      `<div class="ppl" id="friend-div${json[i]["friend"]}">
       <img
         src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
         class="ppl-img"
       />
       <h3 id="friendName${i}"></h3>
-      <button class="unfriend">
+      <button class="unfriend" id="unfriendBtn${i}" onclick="unfriend(${json[i]["friend"]})">
         unfriend <i class="fas fa-minus-circle"></i>
       </button>
       <button class="block">block <i class="fas fa-ban"></i></button>
@@ -201,6 +201,19 @@ async function getfriends(){
   }
 }
 
+async function unfriend(id2){
+  try{
+    const response = await fetch(
+      `http://localhost/Facebook/php/unfriend.php?id1=${id}&id2=${id2}`
+    );
+    const json = await response.json();
+    console.log(json);
+    const friendDiv = document.getElementById(`friend-div${id2}`);
+    friendDiv.remove();
+  }catch(e){
+    console.log("Unfriend function error", e)
+  }
+}
 
 const blocked_count = document.getElementById("blocked-count");
 
