@@ -132,7 +132,6 @@ async function addLike(post_id) {
     );
     const json = await response.json();
     document.getElementById(post_id).textContent = json.nb_of_likes;
-
   } catch (e) {
     console.log("error", e);
   }
@@ -216,7 +215,7 @@ async function blockUser(id2, method) {
       `http://localhost/Facebook/php/block_user.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
-    if (method){
+    if (method) {
       getfriends();
       getblockedCount();
       const blockBtn = document.getElementById(`blockBtn${id2}`);
@@ -267,27 +266,55 @@ async function getBlockedUsers() {
   }
 }
 
+async function getMyPosts() {
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/get_user_posts.php?id=${id}`
+    );
+    const json = await response.json();
+    const postContainer = document.getElementById("myPosts");
+    postContainer.innerHTML = "";
+    for (let i = 0; i < json.length; i++) {
+        postContainer.innerHTML += 
+        `<div class="post-container">
+        <textarea class="post-box" id="post_content${i}" rows="3">${json[i]["Post_content"]}</textarea>
+        <button class="update" onclick="updatePost(${json[i]["ID"]}, ${i})">update</button>
+        <button class="delete" onclick="deletePost(${json[i]["ID"]}, ${i})">delete</button>
+        </div>
+        <hr/>`;
+    }
+  } catch (e) {
+    console.log("error", e);
+  }
+}
+
+async function updatePost(post_id, index){
+  const post_text = document.getElementById(`post_content${index}`).value;
+  const settings = {
+    method: "POST",
+    body: new URLSearchParams({
+      post_id: post_id,
+      text: post_text 
+    }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost/Facebook/php/edit_post.php",
+      settings
+    );
+    const json = await response.json();
+    getPosts(id);
+  }catch(e){
+    console.log("Update Post Error", e)
+  }
+}
+
+
+
 window.onload = function () {
   getPosts(id);
   getfriends();
   getblockedCount();
   getBlockedUsers();
+  getMyPosts();
 };
-
-// const myForm = document.getElementById("myForm");
-// const inpFile = document.getElementById("inpFile");
-
-// myForm.addEventListener("submit", async function(e){
-//   e.preventDefault();
-
-//   const endpoint = "http://localhost/Facebook/php/upload_img.php";
-//   // const formData = new FormData();
-//   // console.log(inpFile.files[0]);
-//   console.log(endpoint);
-//   // formData.append("inpFile", inpFile.files[0]);
-
-//   await fetch(endpoint, {
-//     method: "POST",
-//     body: formData,
-//   }).catch(console.error)
-// })
