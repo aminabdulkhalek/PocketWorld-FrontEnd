@@ -190,7 +190,8 @@ async function getfriends(){
       <button class="unfriend" id="unfriendBtn${i}" onclick="unfriend(${json[i]["friend"]})">
         unfriend <i class="fas fa-minus-circle"></i>
       </button>
-      <button class="block">block <i class="fas fa-ban"></i></button>
+      <button class="block" id="blockBtn${json[i]["friend"]}" 
+      onclick="blockUser(${json[i]["friend"]})">block <i class="fas fa-ban on"></i></button>
     </div>
     `
     getFullName(json[i]["friend"], i, 1)
@@ -215,9 +216,10 @@ async function unfriend(id2){
   }
 }
 
+
 const blocked_count = document.getElementById("blocked-count");
 
-async function getblocked(){
+async function getblockedCount(){
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/get_blocked.php?id=${id}`
@@ -230,10 +232,32 @@ async function getblocked(){
   }
 }
 
+async function blockUser(id2){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/block_user.php?id1=${id}&id2=${id2}`
+    );
+    const json = await response.json();
+    console.log(json);
+  
+    const blockBtn = document.getElementById(`blockBtn${id2}`)
+
+    if (blockBtn.className === 'block'){
+      blockBtn.className = 'blocked';
+    } else {
+      blockBtn.className = 'block';
+    }
+
+  } catch (e) {
+    console.log("error", e)
+  }
+}
+
+
 window.onload = function () {
   getPosts(id);
   getfriends();
-  getblocked();
+  getblockedCount();
 };
 
 
