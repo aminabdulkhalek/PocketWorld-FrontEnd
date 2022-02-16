@@ -68,7 +68,6 @@ async function getPosts(id) {
       "http://localhost/Facebook/php/get_posts.php",
       settings
     );
-    // console.log(response);
     const json = await response.json();
     const postContainer = document.getElementById("post1");
     postContainer.innerHTML = "";
@@ -121,31 +120,19 @@ async function getFullName(id, i, method) {
       const blockedFriendName = document.getElementById(`blocked-friend${i}`);
       blockedFriendName.textContent = json.first_name + " " + json.last_name;
     }
-    // console.log(json);
   } catch (error) {
     console.log("error", error);
   }
 }
-// let liked = 0;
+
 async function addLike(post_id) {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/add_like.php?id=${id}&post_id=${post_id}`
     );
-    // console.log(response);
     const json = await response.json();
     document.getElementById(post_id).textContent = json.nb_of_likes;
 
-    // let likeBtn = document.getElementsByClassName("fas fa-thumbs-up");
-    // console.log(likeBtn);
-
-    //     if (likeBtn.style.color == "rgb(73, 179, 233)"){
-    //       likeBtn.style.color = "red"
-    //     }else{
-    //       likeBtn.style.color = "#49b3e9"
-    //     }
-
-    console.log(json);
   } catch (e) {
     console.log("error", e);
   }
@@ -156,10 +143,8 @@ async function addDislike(post_id) {
     const response = await fetch(
       `http://localhost/Facebook/php/add_dislike.php?id=${id}&post_id=${post_id}`
     );
-    // console.log(response);
     const json = await response.json();
     document.getElementById(`${post_id}d`).textContent = json.nb_of_dislikes;
-    console.log(json);
   } catch (e) {
     console.log("error", e);
   }
@@ -203,7 +188,6 @@ async function unfriend(id2) {
       `http://localhost/Facebook/php/unfriend.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
-    console.log(json);
     const friendDiv = document.getElementById(`friend-div${id2}`);
     friendDiv.remove();
   } catch (e) {
@@ -232,7 +216,6 @@ async function blockUser(id2, method) {
       `http://localhost/Facebook/php/block_user.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
-    console.log(json);
     if (method){
       getfriends();
       getblockedCount();
