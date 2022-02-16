@@ -159,29 +159,24 @@ async function addDislike(post_id) {
 }
 
 
-// const postBtn = document.getElementById
-// async function addPost(text) {
-//   const settings = {
-//     method: "POST",
-//     body: new URLSearchParams({
-//       id: id,
-//       text: text
-//     }),
-//   };
-//   try {
-//     const response = await fetch(
-//       "http://localhost/Facebook/php/add_post.php",
-//       settings
-//     );
-//     const json = await response.json();
-//     console.log(json);
-//   } catch (error) {
-//     console.log("error", error);
-//   }
-// }
+const friends_count = document.getElementById("friend-count");
+
+async function getfriends(){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/get_friends.php?id=${id}`
+    );
+    const json = await response.json();
+    console.log(json);
+    friends_count.textContent = json.length;
+  } catch (e) {
+    console.log("error", e)
+  }
+}
 
 
 
 window.onload = function () {
   getPosts(id);
+  getfriends();
 };
