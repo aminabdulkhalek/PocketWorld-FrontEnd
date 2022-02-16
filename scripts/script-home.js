@@ -86,7 +86,7 @@ async function getPosts(id) {
           ${json[i]["Post_content"]}
         </p>
         <hr />
-        <a class="like" id="like"><i class="fas fa-thumbs-up" onclick="addLike(${json[i]["ID"]})"></i></a
+        <a class="like"><i class="fas fa-thumbs-up" id="like" onclick="addLike(${json[i]["ID"]})"></i></a
         ><span id="${json[i]["ID"]}">${json[i]["nb_of_likes"]}</span>
         <a class="dislike"><i class="fas fa-thumbs-down" onclick="addDislike(${json[i]["ID"]})"></i></a
         ><span id="${json[i]["ID"]}d">${json[i]["nb_of_dislikes"]}</span>
@@ -128,15 +128,18 @@ async function addLike(post_id) {
     // console.log(response);
     const json = await response.json();
     document.getElementById(post_id).textContent = json.nb_of_likes;
-    // const likeBtn = document.getElementsByClassName("like");
-    // if (liked % 2 == 0){
-    //   likeBtn.style.color = "#49b3e9"
-    //   liked += 1;
-    // }else{
-    //   likeBtn.style.color = "#1c88be"
-    //   liked += 1;
-    // }
     
+    // let likeBtn = document.getElementsByClassName("fas fa-thumbs-up");
+    // console.log(likeBtn);
+    
+    //     if (likeBtn.style.color == "rgb(73, 179, 233)"){
+    //       likeBtn.style.color = "red"
+    //     }else{
+    //       likeBtn.style.color = "#49b3e9"
+    //     }
+      
+      
+  
     console.log(json);
   } catch (e) {
     console.log("error", e)
@@ -190,10 +193,28 @@ async function getblocked(){
   }
 }
 
-
-
 window.onload = function () {
   getPosts(id);
   getfriends();
   getblocked();
 };
+
+
+// const myForm = document.getElementById("myForm");
+// const inpFile = document.getElementById("inpFile");
+
+// myForm.addEventListener("submit", async function(e){
+//   e.preventDefault();
+
+//   const endpoint = "http://localhost/Facebook/php/upload_img.php";
+//   // const formData = new FormData();
+//   // console.log(inpFile.files[0]);
+//   console.log(endpoint);
+//   // formData.append("inpFile", inpFile.files[0]);
+
+//   await fetch(endpoint, {
+//     method: "POST",
+//     body: formData,
+//   }).catch(console.error)
+// })
+
