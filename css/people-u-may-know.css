@@ -17,18 +17,20 @@
   flex: 2;
   font-size: 1vw;
   font-weight: 600;
-  text-align: center;
+  text-align: start;
+  padding-left: 15px;
 }
 
 .ppl a {
   flex: 1;
   color: #49b3e9;
-  text-align: middle;
-  font-size: large;
+  text-align: end;
+  
+  font-size: x-large;
 }
 
 .ppl-img {
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
   width: 3.5vw;
   height: 3.5vw;
   display: flex;

@@ -24,7 +24,7 @@
     <!-- my navbar -->
     <nav class="fixed-nav-bar">
       <div id="menu" class="menu">
-        <a class="sitename">Pocket World</a>
+        <a class="sitename"><span>Pocket</span>  World</a>
         <a class="show" href="#menu">Menu</a>
         <a class="hide" href="#hidemenu">Menu</a>
         <a href="">
@@ -197,7 +197,7 @@
     <!-- my friends list modal -->
     <div id="frnd-modal" class="friends-modal">
       <div class="friends-modal__content">
-        <div>
+        <div class="myfriends-header">
           <h1>My Friends List</h1>
           <hr />
           <a href="#" class="friends-modal__close"
@@ -250,7 +250,7 @@
     <!-- my block list modal -->
     <div id="blocked-modal" class="friends-modal">
       <div class="friends-modal__content">
-        <div>
+        <div class="blocked-header">
           <h1>My blocked List</h1>
           <hr />
           <a href="#" class="friends-modal__close"
@@ -297,7 +297,7 @@
     <!-- my posts modal -->
     <div id="myPosts-modal" class="my-posts-modal">
       <div class="my-posts-modal__content">
-        <div>
+        <div class="myposts-header">
           <h1>My posts List</h1>
           <hr />
           <a href="#" class="my-posts-modal__close"
@@ -315,15 +315,16 @@
             <h3>Beverly Little</h3>
             <p>12/10/2021</p>
           </div>
-          <p class="post-box">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <hr />
+          <textarea class="post-box" rows="3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </textarea>
+          
           <button class="update">update</button>
           <button class="delete">delete</button>
         </div>
+        <hr/>
+        
       </div>
+    </div>
     </div>
 
     <script src="../scripts/script-home.js"></script>

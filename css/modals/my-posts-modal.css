@@ -1,85 +1,109 @@
 .my-posts-modal {
-    visibility: hidden;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(77, 77, 77, 0.7);
-    transition: all 0.4s;
-  }
-  
-  .my-posts-modal:target {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .my-posts-modal__content {
-    border-radius: 4px;
-    position: relative;
-    width: 500px;
-    max-width: 90%;
-    background: #fff;
-    padding: 1em 2em;
-    max-height: 50vh;
-    overflow: hidden;
-    overflow-y: auto;
-  }
-  
-  .my-posts-modal__close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #585858;
-    text-decoration: none;
-  }
-  
-  .delete{
-    position: absolute;
-    right: 135px !important;
-    background-image: linear-gradient(
-        to right,
-        #ff1f1f 0%,
-        #fa1212 51%,
-        #ff1f1f 100%
-      ) !important;
-  }
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, 0.7);
+  transition: all 0.4s;
+}
 
-  .update ,.delete {
-    position: absolute;
-    right: 50px;
-    text-decoration: none;
-    border: 0;
-  
-    background-image: linear-gradient(
-      to right,
-      #1fa2ff 0%,
-      #12d8fa 51%,
-      #1fa2ff 100%
-    );
-  
-    padding: 8px 12px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-  }
-  
+.my-posts-modal:target {
+  visibility: visible;
+  opacity: 1;
+}
 
-  .update:hover, .delete:hover{
-    background-position: right center;
-    cursor: pointer;
-    color: #fff;
-  }
+.post-container{
+margin-bottom: 40px;
+}
+
+.my-posts-modal__content {
+  padding-top: 100px !important;
+  border-radius: 4px;
+  position: relative;
+  width: 700px;
+  max-width: 90%;
+  background: #fff;
+  padding: 1em 2em;
+  max-height: 50vh;
+  overflow: hidden;
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+
+.my-posts-modal__close {
+  position: absolute;
+  top: 35px;
+  right: 0px;
+  color: #585858;
+  text-decoration: none;
+}
+
+.my-posts-modal > div > div:nth-child(1) > a > i {
+  font-size: x-large;
+}
+.delete {
+  position: absolute;
+  right: 135px !important;
+  background-image: linear-gradient(
+    to right,
+    #ff1f1f 0%,
+    #fa1212 51%,
+    #ff1f1f 100%
+  ) !important;
+}
+
+.update,
+.delete {
+  position: absolute;
+  right: 50px;
+  text-decoration: none;
+  border: 0;
+
+  background-image: linear-gradient(
+    to right,
+    #1fa2ff 0%,
+    #12d8fa 51%,
+    #1fa2ff 100%
+  );
+
+  padding: 8px 12px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
   
-  @media only screen and (max-width: 800px) {
-      
-    }
+}
+
+.update:hover,
+.delete:hover {
+  background-position: right center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.myposts-header {
+  position: fixed;
+  margin-top: -100px;
+  margin-left: -10px;
+  background-color: white;
+  width: 700px;
+  z-index: 999;
+
+}
+
+#myPosts-modal > div > div.myposts-header > h1{
+  padding-top: 10px;
+  padding-left: 15px;
+}
+@media only screen and (max-width: 800px) {
+}

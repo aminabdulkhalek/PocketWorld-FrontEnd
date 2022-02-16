@@ -34,6 +34,11 @@ body {
   margin: 70px 1vw 0 1vw;
 }
 
+hr{
+  border-bottom: 0px solid rgb(184, 184, 184) !important;
+  border-top: 1px solid rgb(224, 224, 224);
+}
+
 @media only screen and (max-width: 800px) {
   .left_column,
   .right_column {

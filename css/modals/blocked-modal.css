@@ -4,11 +4,19 @@
 
   #blocked-modal > div > div > h3 {
     font-size: 20px !important;
-    text-align: center;
+    text-align: start;
     padding-left: 20px;
   }
   
   #blocked-modal > div > div > img {
     width: 70px;
     height: 70px;
+  }
+
+  .blocked-header{
+    position: fixed;
+    margin-top: -100px;
+    margin-left: -10px;
+    background-color: white;
+    width: 500px;
   }
