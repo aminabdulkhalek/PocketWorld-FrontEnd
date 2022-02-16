@@ -111,12 +111,15 @@ async function getFullName(id, i, method) {
       settings
     );
     const json = await response.json();
-    if (method){
+    if (method == 1) {
       const friendName = document.getElementById(`friendName${i}`);
       friendName.textContent = json.first_name + " " + json.last_name;
-    }else{
+    } else if (method == 0) {
       const fullname = document.getElementById(`fullname${i}`);
       fullname.textContent = json.first_name + " " + json.last_name;
+    } else if (method == 2) {
+      const blockedFriendName = document.getElementById(`blocked-friend${i}`);
+      blockedFriendName.textContent = json.first_name + " " + json.last_name;
     }
     // console.log(json);
   } catch (error) {
@@ -125,7 +128,6 @@ async function getFullName(id, i, method) {
 }
 // let liked = 0;
 async function addLike(post_id) {
-  
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/add_like.php?id=${id}&post_id=${post_id}`
@@ -133,42 +135,37 @@ async function addLike(post_id) {
     // console.log(response);
     const json = await response.json();
     document.getElementById(post_id).textContent = json.nb_of_likes;
-    
+
     // let likeBtn = document.getElementsByClassName("fas fa-thumbs-up");
     // console.log(likeBtn);
-    
+
     //     if (likeBtn.style.color == "rgb(73, 179, 233)"){
     //       likeBtn.style.color = "red"
     //     }else{
     //       likeBtn.style.color = "#49b3e9"
     //     }
-      
-      
-  
+
     console.log(json);
   } catch (e) {
-    console.log("error", e)
+    console.log("error", e);
   }
 }
 
 async function addDislike(post_id) {
-  
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/add_dislike.php?id=${id}&post_id=${post_id}`
     );
     // console.log(response);
     const json = await response.json();
-    document.getElementById(`${post_id}d`).textContent = json.nb_of_dislikes;  
+    document.getElementById(`${post_id}d`).textContent = json.nb_of_dislikes;
     console.log(json);
   } catch (e) {
-    console.log("error", e)
+    console.log("error", e);
   }
 }
 
-
-
-async function getfriends(){
+async function getfriends() {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/get_friends.php?id=${id}`
@@ -180,8 +177,7 @@ async function getfriends(){
     const friendsContainer = document.getElementById("friends");
     friendsContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
-      friendsContainer.innerHTML += 
-      `<div class="ppl" id="friend-div${json[i]["friend"]}">
+      friendsContainer.innerHTML += `<div class="ppl" id="friend-div${json[i]["friend"]}">
       <img
         src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
         class="ppl-img"
@@ -190,20 +186,19 @@ async function getfriends(){
       <button class="unfriend" id="unfriendBtn${i}" onclick="unfriend(${json[i]["friend"]})">
         unfriend <i class="fas fa-minus-circle"></i>
       </button>
-      <button class="block" id="blockBtn${json[i]["friend"]}" 
-      onclick="blockUser(${json[i]["friend"]})">block <i class="fas fa-ban on"></i></button>
+      <button class="block" id="blockBtnFriend${json[i]["friend"]}" 
+      onclick="blockUser(${json[i]["friend"]}, 0)">block <i class="fas fa-ban on"></i></button>
     </div>
-    `
-    getFullName(json[i]["friend"], i, 1)
+    `;
+      getFullName(json[i]["friend"], i, 1);
     }
-
   } catch (e) {
-    console.log("error", e)
+    console.log("error", e);
   }
 }
 
-async function unfriend(id2){
-  try{
+async function unfriend(id2) {
+  try {
     const response = await fetch(
       `http://localhost/Facebook/php/unfriend.php?id1=${id}&id2=${id2}`
     );
@@ -211,15 +206,14 @@ async function unfriend(id2){
     console.log(json);
     const friendDiv = document.getElementById(`friend-div${id2}`);
     friendDiv.remove();
-  }catch(e){
-    console.log("Unfriend function error", e)
+  } catch (e) {
+    console.log("Unfriend function error", e);
   }
 }
 
-
 const blocked_count = document.getElementById("blocked-count");
 
-async function getblockedCount(){
+async function getblockedCount() {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/get_blocked.php?id=${id}`
@@ -228,38 +222,74 @@ async function getblockedCount(){
     // console.log(json);
     blocked_count.textContent = json.length;
   } catch (e) {
-    console.log("error", e)
+    console.log("error", e);
   }
 }
 
-async function blockUser(id2){
+async function blockUser(id2, method) {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/block_user.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
     console.log(json);
-  
-    const blockBtn = document.getElementById(`blockBtn${id2}`)
-
-    if (blockBtn.className === 'block'){
-      blockBtn.className = 'blocked';
+    if (method){
+      getfriends();
+      getblockedCount();
+      const blockBtn = document.getElementById(`blockBtn${id2}`);
+      if (blockBtn.className === "block") {
+        blockBtn.className = "blocked";
+      } else {
+        document.getElementById(`blocked-user${id2}`).remove();
+      }
     } else {
-      blockBtn.className = 'block';
+      getfriends();
+      getBlockedUsers();
+      getblockedCount();
+      const blockBtnFriend = document.getElementById(`blockBtnFriend${id2}`);
+      if (blockBtnFriend.className === "block") {
+        blockBtnFriend.className = "blocked";
+      } else {
+        blockBtnFriend.className = "block";
+      }
     }
-
   } catch (e) {
-    console.log("error", e)
+    console.log("error", e);
   }
 }
 
+async function getBlockedUsers() {
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/get_blocked.php?id=${id}`
+    );
+    const json = await response.json();
+
+    const blockedContainer = document.getElementById("blocked-users");
+    blockedContainer.innerHTML = "";
+    for (let i = 0; i < json.length; i++) {
+      blockedContainer.innerHTML += `<div class="ppl" id="blocked-user${json[i]["blocked"]}">
+    <img
+      src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+      class="ppl-img"
+    />
+    <h3 id="blocked-friend${i}"></h3>
+
+    <button class="blocked" id="blockBtn${json[i]["blocked"]}" onclick="blockUser(${json[i]["blocked"]}, 1)">block <i class="fas fa-ban"></i></button>
+  </div>`;
+      getFullName(json[i]["blocked"], i, 2);
+    }
+  } catch (e) {
+    console.log("error", e);
+  }
+}
 
 window.onload = function () {
   getPosts(id);
   getfriends();
   getblockedCount();
+  getBlockedUsers();
 };
-
 
 // const myForm = document.getElementById("myForm");
 // const inpFile = document.getElementById("inpFile");
@@ -278,4 +308,3 @@ window.onload = function () {
 //     body: formData,
 //   }).catch(console.error)
 // })
-
