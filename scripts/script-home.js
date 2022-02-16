@@ -28,7 +28,9 @@ postBtn.addEventListener("click", function () {
   const postTextValue = postText.value;
   if (postTextValue.length > 0) {
     sendPost(id, postTextValue);
+    postText.value = "";
   }
+  getPosts(id);
 });
 
 // inserting post info to database after posting
@@ -48,6 +50,7 @@ async function sendPost(id, text) {
     console.log(response);
     const json = await response.json();
     console.log(json);
+    getPosts(id);
   } catch (error) {
     console.log("error", error);
   }
@@ -68,6 +71,7 @@ async function getPosts(id) {
     // console.log(response);
     const json = await response.json();
     const postContainer = document.getElementById("post1");
+    postContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
       postContainer.innerHTML += `<div class="post-container" id="post-container">
         <div class="post">
@@ -153,6 +157,30 @@ async function addDislike(post_id) {
     console.log("error", e)
   }
 }
+
+
+// const postBtn = document.getElementById
+// async function addPost(text) {
+//   const settings = {
+//     method: "POST",
+//     body: new URLSearchParams({
+//       id: id,
+//       text: text
+//     }),
+//   };
+//   try {
+//     const response = await fetch(
+//       "http://localhost/Facebook/php/add_post.php",
+//       settings
+//     );
+//     const json = await response.json();
+//     console.log(json);
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+// }
+
+
 
 window.onload = function () {
   getPosts(id);
