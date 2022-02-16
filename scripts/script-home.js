@@ -91,14 +91,14 @@ async function getPosts(id) {
         <a class="dislike"><i class="fas fa-thumbs-down" onclick="addDislike(${json[i]["ID"]})"></i></a
         ><span id="${json[i]["ID"]}d">${json[i]["nb_of_dislikes"]}</span>
       </div>`;
-      getFullName(json[i]["User_ID"], i);
+      getFullName(json[i]["User_ID"], i, 0);
     }
   } catch (error) {
     console.log("error", error);
   }
 }
 
-async function getFullName(id, i) {
+async function getFullName(id, i, method) {
   const settings = {
     method: "POST",
     body: new URLSearchParams({
@@ -111,9 +111,14 @@ async function getFullName(id, i) {
       settings
     );
     const json = await response.json();
+    if (method){
+      const friendName = document.getElementById(`friendName${i}`);
+      friendName.textContent = json.first_name + " " + json.last_name;
+    }else{
+      const fullname = document.getElementById(`fullname${i}`);
+      fullname.textContent = json.first_name + " " + json.last_name;
+    }
     // console.log(json);
-    const fullname = document.getElementById(`fullname${i}`);
-    fullname.textContent = json.first_name + " " + json.last_name;
   } catch (error) {
     console.log("error", error);
   }
@@ -162,7 +167,6 @@ async function addDislike(post_id) {
 }
 
 
-const friends_count = document.getElementById("friend-count");
 
 async function getfriends(){
   try {
@@ -170,8 +174,28 @@ async function getfriends(){
       `http://localhost/Facebook/php/get_friends.php?id=${id}`
     );
     const json = await response.json();
-    console.log(json);
+    const friends_count = document.getElementById("friend-count");
     friends_count.textContent = json.length;
+
+    const friendsContainer = document.getElementById("friends");
+    friendsContainer.innerHTML = "";
+    for (let i = 0; i < json.length; i++) {
+      friendsContainer.innerHTML += 
+      `<div class="ppl">
+      <img
+        src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+        class="ppl-img"
+      />
+      <h3 id="friendName${i}"></h3>
+      <button class="unfriend">
+        unfriend <i class="fas fa-minus-circle"></i>
+      </button>
+      <button class="block">block <i class="fas fa-ban"></i></button>
+    </div>
+    `
+    getFullName(json[i]["friend"], i, 1)
+    }
+
   } catch (e) {
     console.log("error", e)
   }
@@ -186,7 +210,7 @@ async function getblocked(){
       `http://localhost/Facebook/php/get_blocked.php?id=${id}`
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     blocked_count.textContent = json.length;
   } catch (e) {
     console.log("error", e)
