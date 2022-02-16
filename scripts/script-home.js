@@ -119,6 +119,9 @@ async function getFullName(id, i, method) {
     } else if (method == 2) {
       const blockedFriendName = document.getElementById(`blocked-friend${i}`);
       blockedFriendName.textContent = json.first_name + " " + json.last_name;
+    } else if (method == 3){
+      const requestName = document.getElementById(`requestName${i}`);
+      requestName.textContent = json.first_name + " " + json.last_name;
     }
   } catch (error) {
     console.log("error", error);
@@ -181,14 +184,57 @@ async function getfriends() {
   }
 }
 
+async function acceptRequest (id2){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/accept_request.php?id1=${id}&id2=${id2}`
+    );
+    const json = await response.json();
+    console.log(json);
+    getRequests();
+    getfriends();
+  } catch (e) {
+    console.log("Accept request function error", e);
+  }
+}
+
+async function getRequests(){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/get_requests.php?id=${id}`
+    );
+    const json = await response.json();
+    const requestsContainer = document.getElementById("friend-request");
+    requestsContainer.innerHTML = "";
+    for (let i = 0; i < json.length; i++) {
+      requestsContainer.innerHTML += `
+      <div class="ppl">
+      <img
+        src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+        class="ppl-img"
+      />
+      <h3 id="requestName${i}"></h3>
+      <button class="accept" onclick="acceptRequest(${json[i]["request"]})">
+        accept <i class="fas fa-check-circle"></i>
+      </button>
+      <button class="ignore" onclick="unfriend(${json[i]["request"]})">ignore <i class="fas fa-ban"></i></button>
+    </div>`;
+      getFullName(json[i]["request"], i, 3);
+    }
+  } catch (e) {
+    console.log("error", e);
+  }
+}
+
 async function unfriend(id2) {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/unfriend.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
-    const friendDiv = document.getElementById(`friend-div${id2}`);
-    friendDiv.remove();
+    console.log(json);
+    getRequests();
+    getfriends();
   } catch (e) {
     console.log("Unfriend function error", e);
   }
@@ -331,10 +377,13 @@ async function deletePost(post_id){
 
 
 
+
+
 window.onload = function () {
   getPosts(id);
   getfriends();
   getblockedCount();
   getBlockedUsers();
   getMyPosts();
+  getRequests();
 };
