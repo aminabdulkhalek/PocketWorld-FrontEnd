@@ -175,8 +175,25 @@ async function getfriends(){
 }
 
 
+const blocked_count = document.getElementById("blocked-count");
+
+async function getblocked(){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/get_blocked.php?id=${id}`
+    );
+    const json = await response.json();
+    console.log(json);
+    blocked_count.textContent = json.length;
+  } catch (e) {
+    console.log("error", e)
+  }
+}
+
+
 
 window.onload = function () {
   getPosts(id);
   getfriends();
+  getblocked();
 };
