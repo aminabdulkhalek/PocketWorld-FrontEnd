@@ -1,4 +1,8 @@
 /*--------------------------------Login page--------------------------------*/
+body{
+    background-color: #eef3f8;
+}
+
 .title{
     text-align: center;
 }
@@ -19,27 +23,38 @@
     flex-direction: column;
 }
 
+body > div > div.title > h1{
+    font-family: "Roboto", sans-serif;
+    color: white;
+    background-color: #49b3e9;
+    border-radius: 4px;
+}
+
+body > div > div.title > h1 > span{
+    color: #2058cf;
+}
+
 #login-container {
     padding: 3rem;
     border-radius: 12px;
-    box-shadow: 5px 10px 5px 5px #888888;
+    /* box-shadow: 5px 10px 5px 5px #888888; */
     margin: 2rem;
-    background-color: #f0f2f5;
+    background-color: white;
     flex: 0 1 15%;
 }
 
 #signup-container {
     padding: 3rem;
     border-radius: 12px;
-    box-shadow: 5px 10px 5px 5px #888888;
+    /* box-shadow: 5px 10px 5px 5px #888888; */
     margin: 2rem;
-    background-color: #f0f2f5;
+    background-color: white;
     flex: 0 1 15%;
 }
 
 input {
     border-radius: 6px;
-    border: 1px solid #dddfe2;
+    border: 1px solid #b5bac0;
     padding: 12px;
 }
 
@@ -48,16 +63,33 @@ input[type=text]:focus, input[type=password]:focus{
 }
 
 .form-btn{
-    color: #f0f2f5;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    font-size:medium;
-    background-color: #4967a9;
+    text-decoration: none;
+    border: 0;
     cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      #1fa2ff 0%,
+      #12d8fa 51%,
+      #1fa2ff 100%
+    );
+  
+    padding: 8px 12px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px rgb(223, 223, 223);
+    border-radius: 10px;
+    display: block;
+    font-size: large;
 }
 
 .form-btn:hover{
-    background-color: #344a7a;
+    background-color: #1073a5;
+    background-position: right center;
+    cursor: pointer;
+    color: #fff;
 }
 
  @media only screen and (max-width: 500px) {
