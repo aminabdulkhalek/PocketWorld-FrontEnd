@@ -158,5 +158,24 @@
       .unfriend , .block,.blocked{
           font-size: 10px;
       }
+
+      .myfriends-header{
+        position: fixed;
+        margin-top: -100px;
+        margin-left: -10px;
+        background-color: white;
+        width: 500px !important;
+      }
+      
+  }
+
+  @media only screen and (max-width: 400px) {
+      .myfriends-header{
+        position: fixed;
+        margin-top: -100px;
+        margin-left: -10px;
+        background-color: white;
+        width: 350px !important;
+      }
       
   }
