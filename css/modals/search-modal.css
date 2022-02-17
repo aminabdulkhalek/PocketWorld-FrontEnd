@@ -116,9 +116,10 @@
   visibility: hidden;
   padding: 0;
 }
+
 .added::after {
   margin-top: -15px;
-  cursor: pointer;
+  cursor: not-allowed;
   visibility: visible;
   text-decoration: none;
   border: 0;

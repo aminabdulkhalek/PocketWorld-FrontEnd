@@ -246,6 +246,22 @@ async function unfriend(id2) {
   }
 }
 
+async function addFriend(id2, i){
+  try {
+    const response = await fetch(
+      `http://localhost/Facebook/php/add_request.php?id1=${id}&id2=${id2}`
+    );
+    const json = await response.json();
+    console.log(json);
+    const addBtn = document.getElementById(`addBtn${i}`);
+    addBtn.className = "added";
+  } catch (e) {
+    console.log("add friend function error", e);
+  }
+}
+
+
+
 const blocked_count = document.getElementById("blocked-count");
 
 async function getblockedCount() {
@@ -407,7 +423,7 @@ async function searchUsers(){
           class="ppl-img"
         />
         <h3>${json[i]["first_name"] + " " + json[i]["last_name"]}</h3>
-        <button class="add" id="addBtn${i}" onclick="addUser(${json[i]["id"]})">Add <i class="fas fa-plus-circle"></i></button>
+        <button class="add" id="addBtn${i}" onclick="addFriend(${json[i]["id"]}, ${i})">Add <i class="fas fa-plus-circle"></i></button>
       </div>`;
     }
   }catch(e){
@@ -415,9 +431,7 @@ async function searchUsers(){
   }
 }
 
-async function addFriend(id2){
-  
-}
+
 
 
 
