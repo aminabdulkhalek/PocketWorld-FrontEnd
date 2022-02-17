@@ -39,12 +39,18 @@ async function fetchLogin(email, password) {
       email.length > 0 &&
       password.length > 0
     ) {
+
+
       // localStorage.clear();
       localStorage.setItem("user_id", json.user_id);
       localStorage.setItem("first_name", json.first_name);
       localStorage.setItem("last_name", json.last_name);
       localStorage.setItem("email", json.email);
       location.href = "./views/home.html";
+    }
+
+    if (password != json.password){
+      passwordField.style.border = "1px solid #FF0000";
     }
   } catch (error) {
     console.log("error", error);
