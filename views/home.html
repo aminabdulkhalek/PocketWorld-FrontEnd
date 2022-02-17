@@ -157,10 +157,10 @@
       <div id="srch-modal" class="search-modal">
         <div class="search-modal__content">
           <div class="search-header">
-            <h2>Search for potintial Friends</h2>
+            <h2>Search for potential Friends</h2>
 
-            <input class="search-box" type="text" placeholder="search..." />
-            <button class="search-button">
+            <input class="search-box" type="text" id="search-key" placeholder="search..." />
+            <button class="search-button" id="searchBtn">
               <i class="fas fa-search"></i>Search
             </button>
             <hr />
@@ -169,37 +169,8 @@
             </a>
           </div>
 
-          <!-- a user -->
-          <div class="ppl">
-            <img
-              src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
-              class="ppl-img"
-            />
-            <h3>Beverly Little</h3>
-            <button class="add">Add <i class="fas fa-plus-circle"></i></button>
-          </div>
-
-          <!-- a user -->
-          <div class="ppl">
-            <img
-              src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
-              class="ppl-img"
-            />
-            <h3>Beverly Little</h3>
-            <button class="added">
-              add <i class="fas fa-check-circle"></i>
-            </button>
-          </div>
-
-          <!-- a user -->
-          <div class="ppl">
-            <img
-              src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
-              class="ppl-img"
-            />
-            <h3>Beverly Little</h3>
-            <button class="add">Add <i class="fas fa-plus-circle"></i></button>
-          </div>
+          <div id="searched-people"></div>
+       
         </div>
       </div>
       <!-- end of search modal -->

@@ -5,11 +5,17 @@ logout.addEventListener("click", function () {
   location.href = "../index.html";
 });
 
+
+
 // getting user info though local storage
 const id = localStorage.getItem("user_id");
 const firstName_stored = localStorage.getItem("first_name");
 const lastName_stored = localStorage.getItem("last_name");
 const email_stored = localStorage.getItem("email");
+
+// event listener for search button
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", searchUsers);
 
 // displaying logged in user name
 const userName = document.getElementById("username");
@@ -375,6 +381,43 @@ async function deletePost(post_id){
   }
 }
 
+async function searchUsers(){
+  const searchkey = document.getElementById("search-key").value;
+  const settings = {
+    method: "POST",
+    body: new URLSearchParams({
+      id: id,
+      key: searchkey 
+    }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost/Facebook/php/search_users.php",
+      settings
+    );
+    const json = await response.json();
+    console.log(json);
+    const searchedContainer = document.getElementById("searched-people");
+    searchedContainer.innerHTML = "";
+    for (let i = 0; i < json.length; i++) {
+        searchedContainer.innerHTML += 
+        `<div class="ppl">
+        <img
+          src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+          class="ppl-img"
+        />
+        <h3>${json[i]["first_name"] + " " + json[i]["last_name"]}</h3>
+        <button class="add" id="addBtn${i}" onclick="addUser(${json[i]["id"]})">Add <i class="fas fa-plus-circle"></i></button>
+      </div>`;
+    }
+  }catch(e){
+    console.log("Search Users Error", e)
+  }
+}
+
+async function addFriend(id2){
+  
+}
 
 
 
