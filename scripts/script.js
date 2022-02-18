@@ -49,7 +49,7 @@ async function fetchLogin(email, password) {
       location.href = "./views/home.html";
     }
 
-    if (password != json.password){
+    if (password != json.password) {
       passwordField.style.border = "1px solid #FF0000";
     }
   } catch (error) {

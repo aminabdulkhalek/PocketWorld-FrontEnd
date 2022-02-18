@@ -125,7 +125,7 @@ async function getFullName(id, i, method) {
     } else if (method == 2) {
       const blockedFriendName = document.getElementById(`blocked-friend${i}`);
       blockedFriendName.textContent = json.first_name + " " + json.last_name;
-    } else if (method == 3){
+    } else if (method == 3) {
       const requestName = document.getElementById(`requestName${i}`);
       requestName.textContent = json.first_name + " " + json.last_name;
     }
@@ -190,7 +190,7 @@ async function getfriends() {
   }
 }
 
-async function acceptRequest (id2){
+async function acceptRequest(id2) {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/accept_request.php?id1=${id}&id2=${id2}`
@@ -204,7 +204,7 @@ async function acceptRequest (id2){
   }
 }
 
-async function getRequests(){
+async function getRequests() {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/get_requests.php?id=${id}`
@@ -246,17 +246,17 @@ async function unfriend(id2) {
   }
 }
 
-async function addFriend(id2, i, method){
+async function addFriend(id2, i, method) {
   try {
     const response = await fetch(
       `http://localhost/Facebook/php/add_request.php?id1=${id}&id2=${id2}`
     );
     const json = await response.json();
     console.log(json);
-    if (method){
+    if (method) {
       const addBtn = document.getElementById(`addBtn${i}`);
       addBtn.className = "added";
-    }else{
+    } else {
       getRandomPeople();
     }
   } catch (e) {
@@ -345,7 +345,7 @@ async function getMyPosts() {
     const postContainer = document.getElementById("myPosts");
     postContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
-        postContainer.innerHTML += 
+      postContainer.innerHTML +=
         `<div class="post-container">
         <textarea class="post-box" id="post_content${i}" rows="3">${json[i]["Post_content"]}</textarea>
         <button class="update" onclick="updatePost(${json[i]["ID"]}, ${i})">update</button>
@@ -358,13 +358,13 @@ async function getMyPosts() {
   }
 }
 
-async function updatePost(post_id, index){
+async function updatePost(post_id, index) {
   const post_text = document.getElementById(`post_content${index}`).value;
   const settings = {
     method: "POST",
     body: new URLSearchParams({
       post_id: post_id,
-      text: post_text 
+      text: post_text
     }),
   };
   try {
@@ -374,12 +374,12 @@ async function updatePost(post_id, index){
     );
     const json = await response.json();
     getPosts(id);
-  }catch(e){
+  } catch (e) {
     console.log("Update Post Error", e)
   }
 }
 
-async function deletePost(post_id){
+async function deletePost(post_id) {
   const settings = {
     method: "POST",
     body: new URLSearchParams({
@@ -394,18 +394,18 @@ async function deletePost(post_id){
     const json = await response.json();
     getPosts(id);
     getMyPosts();
-  }catch(e){
+  } catch (e) {
     console.log("Update Post Error", e)
   }
 }
 
-async function searchUsers(){
+async function searchUsers() {
   const searchkey = document.getElementById("search-key").value;
   const settings = {
     method: "POST",
     body: new URLSearchParams({
       id: id,
-      key: searchkey 
+      key: searchkey
     }),
   };
   try {
@@ -418,7 +418,7 @@ async function searchUsers(){
     const searchedContainer = document.getElementById("searched-people");
     searchedContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
-        searchedContainer.innerHTML += 
+      searchedContainer.innerHTML +=
         `<div class="ppl">
         <img
           src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
@@ -428,12 +428,12 @@ async function searchUsers(){
         <button class="add" id="addBtn${i}" onclick="addFriend(${json[i]["id"]}, ${i}, ${1})">Add <i class="fas fa-plus-circle"></i></button>
       </div>`;
     }
-  }catch(e){
+  } catch (e) {
     console.log("Search Users Error", e)
   }
 }
 
-async function getRandomPeople(){
+async function getRandomPeople() {
   const settings = {
     method: "POST",
     body: new URLSearchParams({
@@ -450,7 +450,7 @@ async function getRandomPeople(){
     const randomContainer = document.getElementById("random-container");
     randomContainer.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
-        randomContainer.innerHTML += 
+      randomContainer.innerHTML +=
         `<div class="ppl">
         <img
           src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
@@ -460,7 +460,7 @@ async function getRandomPeople(){
         <a href="" onclick="addFriend(${json[i]["id"]}, ${i}, ${0})"><i class="fas fa-plus-circle"></i></a>
       </div>`;
     }
-  }catch(e){
+  } catch (e) {
     console.log("Search Users Error", e)
   }
 

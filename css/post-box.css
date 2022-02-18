@@ -35,11 +35,10 @@
 .post p {
   color: #1fa2ff;
   text-align: end;
-
 }
 
-hr{
-    margin-bottom: 15px;
+hr {
+  margin-bottom: 15px;
 }
 .post-img {
   width: 70px;
@@ -47,21 +46,20 @@ hr{
   display: flex;
   border-radius: 100%;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.541);
-
 }
 
 .like {
-    color: #49b3e9;
-    font-size: x-large;
-    cursor: pointer;
+  color: #49b3e9;
+  font-size: x-large;
+  cursor: pointer;
 }
 .dislike {
-    color: rgb(255, 92, 92);
-    font-size: x-large;
-    cursor: pointer;
+  color: rgb(255, 92, 92);
+  font-size: x-large;
+  cursor: pointer;
 }
 .post-container span {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: larger;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: larger;
 }

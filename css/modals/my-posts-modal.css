@@ -91,7 +91,6 @@
 }
 
 .myposts-header {
-
   position: fixed;
   margin-top: -100px;
   margin-left: -10px;
@@ -105,10 +104,8 @@
   padding-left: 15px;
 }
 @media only screen and (max-width: 400px) {
-  .my-posts-modal__content ,.myposts-header{
-    width: 300px ;
-  }
+  .my-posts-modal__content,
   .myposts-header {
-
+    width: 300px;
   }
 }
