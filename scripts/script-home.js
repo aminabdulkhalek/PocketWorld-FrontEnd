@@ -81,7 +81,7 @@ async function getPosts(id) {
       postContainer.innerHTML += `<div class="post-container" id="post-container">
         <div class="post">
           <img
-            src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+            src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
             class="post-img"
           />
           <h3 id="fullname${i}"></h3>
@@ -172,7 +172,7 @@ async function getfriends() {
     for (let i = 0; i < json.length; i++) {
       friendsContainer.innerHTML += `<div class="ppl" id="friend-div${json[i]["friend"]}">
       <img
-        src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+        src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
         class="ppl-img"
       />
       <h3 id="friendName${i}"></h3>
@@ -216,7 +216,7 @@ async function getRequests(){
       requestsContainer.innerHTML += `
       <div class="ppl">
       <img
-        src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+        src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
         class="ppl-img"
       />
       <h3 id="requestName${i}"></h3>
@@ -322,7 +322,7 @@ async function getBlockedUsers() {
     for (let i = 0; i < json.length; i++) {
       blockedContainer.innerHTML += `<div class="ppl" id="blocked-user${json[i]["blocked"]}">
     <img
-      src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+      src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
       class="ppl-img"
     />
     <h3 id="blocked-friend${i}"></h3>
@@ -421,7 +421,7 @@ async function searchUsers(){
         searchedContainer.innerHTML += 
         `<div class="ppl">
         <img
-          src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+          src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
           class="ppl-img"
         />
         <h3>${json[i]["first_name"] + " " + json[i]["last_name"]}</h3>
@@ -453,7 +453,7 @@ async function getRandomPeople(){
         randomContainer.innerHTML += 
         `<div class="ppl">
         <img
-          src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w"
+          src="https://st.depositphotos.com/1779253/5140/v/380/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg?forcejpeg=true"
           class="ppl-img"
         />
         <h3>${json[i]["first_name"] + " " + json[i]["last_name"]}</h3>
