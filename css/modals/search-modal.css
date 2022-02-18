@@ -164,11 +164,45 @@
   #srch-modal > div > div > h3 {
     font-size: 15px !important;
   }
-  #srch-modal > div > div:nth-child(1) > a > i {
+  #srch-modal > div > div > a > i {
     font-size: x-large;
   }
   .add,
   .added {
     font-size: 10px;
   }
+
+}
+
+@media only screen and (max-width: 450px) {
+  #srch-modal > div{
+    width: 300px;
+  }
+  #srch-modal > div > div.search-header , .search-box{
+    width: 300px;
+  }
+  .search-box{
+    width: 150px;
+  }
+  #searched-people{
+    margin-top: 20px;
+  }
+  #searched-people > div > img, #post-container > div > img{
+    width: 50px;
+    height: 50px;
+  }
+  #searched-people > div > h3{
+    font-size: 13px;
+  }
+  #post-container > div > p{
+    font-size: 10px;
+    position: absolute;
+    right: 25px;
+    margin-top: -35px;
+  }
+  #post-container > div > h3{
+    font-size: 14px;
+    padding-left: 10px;
+  }
+  
 }

@@ -38,20 +38,7 @@
   color: #585858;
   text-decoration: none;
 }
-#frnd-modal > div > div.myfriends-header > h1{
-  padding-left: 10px;
-}
-#frnd-modal > div > div > h3 {
-  font-size: large;
-  font-weight: 600;
-  text-align: start;
-  padding-left: 20px;
-}
 
-#frnd-modal > div > div > img {
-  width: 70px;
-  height: 70px;
-}
 
 .block {
   text-decoration: none;
@@ -169,13 +156,22 @@
       
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 450px) {
       .myfriends-header{
         position: fixed;
         margin-top: -100px;
         margin-left: -10px;
         background-color: white;
         width: 350px !important;
+        font-size: small;
       }
-      
+      #friends > div > img {
+        width: 50px ;
+        height: 50px ;
+        margin-left: -10px;
+      }
+      #friends > div > h3 {
+        font-size: medium;
+        padding-left: 10px;
+      }
   }
