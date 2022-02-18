@@ -1,22 +1,44 @@
 #blocked-modal > div > div:nth-child(1) > a > i {
-    font-size: x-large;
-  }
+  font-size: x-large;
+}
 
-  #blocked-modal > div > div > h3 {
-    font-size: 20px !important;
-    text-align: start;
-    padding-left: 20px;
-  }
-  
-  #blocked-modal > div > div > img {
-    width: 70px;
-    height: 70px;
-  }
+#blocked-modal > div > div > h3 {
+  font-size: 20px !important;
+  text-align: start;
+  padding-left: 20px;
+}
 
-  .blocked-header{
+#blocked-modal > div > div > img {
+  width: 70px;
+  height: 70px;
+}
+
+.blocked-header {
+  position: fixed;
+  margin-top: -100px;
+  margin-left: -10px;
+  background-color: white;
+  width: 500px;
+}
+
+@media only screen and (max-width: 450px) {
+  #blocked-modal > div {
+    width: 310px;
+  }
+  #blocked-modal > div > div.blocked-header {
     position: fixed;
     margin-top: -100px;
     margin-left: -10px;
     background-color: white;
-    width: 500px;
+    width: 320px !important;
   }
+  #blocked-users > div > img {
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+  }
+  #blocked-users > div > h3 {
+    font-size: medium;
+    padding-left: 7px;
+  }
+}

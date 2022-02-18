@@ -141,7 +141,8 @@
   display: block;
 }
 
-.add:hover ,.search-button:hover{
+.add:hover,
+.search-button:hover {
   background-position: right center;
   cursor: pointer;
   color: #fff;
@@ -158,8 +159,6 @@
   border-radius: 4px;
 }
 
-
-
 @media only screen and (max-width: 800px) {
   #srch-modal > div > div > h3 {
     font-size: 15px !important;
@@ -171,39 +170,38 @@
   .added {
     font-size: 10px;
   }
-
 }
 
 @media only screen and (max-width: 450px) {
-  #srch-modal > div{
+  #srch-modal > div {
     width: 300px;
   }
-  #srch-modal > div > div.search-header , .search-box{
+  #srch-modal > div > div.search-header,
+  .search-box {
     width: 300px;
   }
-  .search-box{
+  .search-box {
     width: 150px;
   }
-  #searched-people{
+  #searched-people {
     margin-top: 20px;
   }
-  #srch-modal > div > div.search-header > h2{
+  #srch-modal > div > div.search-header > h2 {
     font-size: x-large;
   }
-  #searched-people > div > img, #post-container > div > img{
+  #searched-people > div > img,
+  #post-container > div > img {
     width: 50px;
     height: 50px;
   }
-  #searched-people > div > h3{
+  #searched-people > div > h3 {
     font-size: 13px;
     padding-left: 7px;
   }
-  #searched-people > div > p{
+  #searched-people > div > p {
     font-size: 10px;
     position: absolute;
     right: 25px;
     margin-top: -35px;
   }
-
-  
 }

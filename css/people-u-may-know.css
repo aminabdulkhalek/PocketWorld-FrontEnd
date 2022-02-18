@@ -31,8 +31,8 @@
 
 .ppl-img {
   /* margin-left: 2vw; */
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 55px;
+  height: 55px;
   display: flex;
   border-radius: 100%;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.541);

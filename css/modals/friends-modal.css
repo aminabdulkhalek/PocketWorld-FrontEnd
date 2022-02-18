@@ -39,7 +39,6 @@
   text-decoration: none;
 }
 
-
 .block {
   text-decoration: none;
   border: 0;
@@ -87,7 +86,6 @@
 
 .blocked {
   visibility: hidden;
-
 }
 .blocked::after {
   cursor: pointer;
@@ -113,18 +111,19 @@
   margin-right: -10px;
 }
 
-.unfriend:hover , .block:hover ,.blocked:hover {
+.unfriend:hover,
+.block:hover,
+.blocked:hover {
   background-position: right center;
   cursor: pointer;
   color: #fff;
 }
 
-
 #frnd-modal > div > div:nth-child(1) > a > i {
   font-size: x-large;
 }
 
-.myfriends-header{
+.myfriends-header {
   position: fixed;
   margin-top: -100px;
   margin-left: -10px;
@@ -133,47 +132,47 @@
 }
 
 @media only screen and (max-width: 800px) {
-    #frnd-modal > div > div > h3{
-      font-size: 15px !important;
-  
-    }
-    #frnd-modal > div > div > img {
-        width: 50px;
-        height: 50px;
-      }
-
-      .unfriend , .block,.blocked{
-          font-size: 10px;
-      }
-
-      .myfriends-header{
-        position: fixed;
-        margin-top: -100px;
-        margin-left: -10px;
-        background-color: white;
-        width: 500px !important;
-      }
-      
+  #frnd-modal > div > div > h3 {
+    font-size: 15px !important;
+  }
+  #frnd-modal > div > div > img {
+    width: 50px;
+    height: 50px;
   }
 
-  @media only screen and (max-width: 450px) {
-    #frnd-modal > div{
-      width: 310px;
-    }
-      .myfriends-header{
-        position: fixed;
-        margin-top: -100px;
-        margin-left: -10px;
-        background-color: white;
-        width: 320px !important;
-      }
-      #friends > div > img {
-        width: 50px ;
-        height: 50px ;
-        margin-left: -10px;
-      }
-      #friends > div > h3 {
-        font-size: medium;
-        padding-left: 7px;
-      }
+  .unfriend,
+  .block,
+  .blocked {
+    font-size: 10px;
   }
+
+  .myfriends-header {
+    position: fixed;
+    margin-top: -100px;
+    margin-left: -10px;
+    background-color: white;
+    width: 500px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #frnd-modal > div {
+    width: 310px;
+  }
+  .myfriends-header {
+    position: fixed;
+    margin-top: -100px;
+    margin-left: -10px;
+    background-color: white;
+    width: 320px !important;
+  }
+  #friends > div > img {
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+  }
+  #friends > div > h3 {
+    font-size: medium;
+    padding-left: 7px;
+  }
+}

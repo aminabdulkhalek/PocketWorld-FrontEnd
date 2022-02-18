@@ -18,8 +18,8 @@
   opacity: 1;
 }
 
-.post-container{
-margin-bottom: 40px;
+.post-container {
+  margin-bottom: 40px;
 }
 
 .my-posts-modal__content {
@@ -81,7 +81,6 @@ margin-bottom: 40px;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
-  
 }
 
 .update:hover,
@@ -92,18 +91,24 @@ margin-bottom: 40px;
 }
 
 .myposts-header {
+
   position: fixed;
   margin-top: -100px;
   margin-left: -10px;
   background-color: white;
   width: 700px;
   z-index: 999;
-
 }
 
-#myPosts-modal > div > div.myposts-header > h1{
+#myPosts-modal > div > div.myposts-header > h1 {
   padding-top: 10px;
   padding-left: 15px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 400px) {
+  .my-posts-modal__content ,.myposts-header{
+    width: 300px ;
+  }
+  .myposts-header {
+
+  }
 }
