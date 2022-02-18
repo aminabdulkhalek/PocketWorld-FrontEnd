@@ -1,4 +1,4 @@
-#Pocket World
+# Pocket World
 
 ## Pocket world is a social website where you can:
 
@@ -22,7 +22,14 @@
 - Postman
 - XAMPP 
 
-
+### ScreenShots:
+![alt text](assets/ScreenShots/1.png)
+![alt text](assets/ScreenShots/2.png)
+![alt text](assets/ScreenShots/3.png)
+![alt text](assets/ScreenShots/4.png)
+![alt text](assets/ScreenShots/5.png)
+![alt text](assets/ScreenShots/6.png)
+![alt text](assets/ScreenShots/7.png)
 
 
 
